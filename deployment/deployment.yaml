@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: healthchecker-go
-        image: keatontaylor/healthchecker-go:dev
+        image: keatontaylor/healthchecker-go:v0.1
         imagePullPolicy: Always
         args:
         - -url=https://httpstat.us/503
