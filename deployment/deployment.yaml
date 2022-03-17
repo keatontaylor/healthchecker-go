@@ -1,0 +1,58 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: healthchecker-go
+  labels:
+    name: healthchecker-go
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthchecker-go
+  namespace: healthchecker-go
+  labels:
+    app.kubernetes.io/name: healthchecker-go
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: healthchecker-go
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: healthchecker-go
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '2112'
+        prometheus.io/path: /metrics
+    spec:
+      containers:
+      - name: healthchecker-go
+        image: keatontaylor/healthchecker-go:latest
+        imagePullPolicy: Always
+        args:
+        - -url=https://httpstat.us/503
+        - -url=https://httpstat.us/200
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 2112
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: healthchecker-go
+  namespace: healthchecker-go
+  labels:
+    app.kubernetes.io/name: healthchecker-go
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: healthchecker-go
+  ports:
+  - port: 2112
+    targetPort: 2112
