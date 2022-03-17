@@ -23,7 +23,7 @@ Cloudflared is configured with a named tunnel between Cloudflare's Edge Network 
 ```
 docker pull keatontaylor/healthchecker-go:latest
 
-docker run --it -p 2112:2112 keatontaylor/healthchecker-go:latest --url https://httpstat.us/503 --url https://httpstat.us/200 --interval 60s
+docker run -it --rm -p 2112:2112 keatontaylor/healthchecker-go:latest --url https://httpstat.us/503 --url https://httpstat.us/200 --interval 5s
 ```
 
 ### Via Local Building
