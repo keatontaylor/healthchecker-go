@@ -72,7 +72,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t <dockerhub username>/h
 ```
 
 # Kube Deployments
-Located in the `deployments` folder is the kube manifest for the application, the `deployment.yaml` file contains the namespace, deployment and service definitions along with all necessary annotations for the prometheus service scrape config.
+Located in the `deployment` folder is the kube manifest for the application, the `deployment.yaml` file contains the namespace, deployment and service definitions along with all necessary annotations for the prometheus service scrape config.
 
 # Deploying the entire stack locally
 Requires the installation of either minikube or docker desktop with kube.
@@ -85,7 +85,7 @@ Other requirements include:
 
 ## Deploy application
 ```
-kubectl apply -f deployments/deployment.yaml
+kubectl apply -f deployment/deployment.yaml
 ```
 
 ## Deploy Loki Stack 
@@ -110,5 +110,5 @@ kubectl port-forward loki-grafana-<replace with pod id> 3000:3000
 1. Navigate to localhost:3000 in your browser and use the username and password retrieved from the prior steps.
 2. Navigate to Dashboards -> Browse
 3. Click `Import`
-4. Copy and paste the `dashboard.json` file located in the `deployments` directory.
+4. Copy and paste the `dashboard.json` file located in the `deployment` directory.
 5. Hitting `Import` will take you to the dashboard.
