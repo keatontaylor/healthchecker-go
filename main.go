@@ -41,7 +41,7 @@ func (i *urlArrayFlags) Set(value string) error {
 func init() {
 	flag.DurationVar(
 		&healthcheck_interval,
-		"inverval",
+		"interval",
 		5*time.Second,
 		"Interval for the healthchecks",
 	)
