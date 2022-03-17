@@ -30,22 +30,22 @@ Once running you can navigate to localhost:2112/metrics to view the promethus me
 
 The following metrics are prvided as output with descriptions and examples:
 ```
-# HELP sample_external_url_connect_time Response time in milliseconds it took to establish the inital connection.
-# TYPE sample_external_url_connect_time gauge
-sample_external_url_connect_time{url="https://httpstat.us/200"} 19
-sample_external_url_connect_time{url="https://httpstat.us/503"} 23
-# HELP sample_external_url_dns Response time in milliseconds it took for the DNS request to take place.
-# TYPE sample_external_url_dns gauge
-sample_external_url_dns{url="https://httpstat.us/200"} 1
-sample_external_url_dns{url="https://httpstat.us/503"} 1
-# HELP sample_external_url_first_byte Response time in milliseconds it took to retrive the first byte.
-# TYPE sample_external_url_first_byte gauge
-sample_external_url_first_byte{url="https://httpstat.us/200"} 87
-sample_external_url_first_byte{url="https://httpstat.us/503"} 97
-# HELP sample_external_url_ms Response time in milliseconds it took for the URL to respond.
-# TYPE sample_external_url_ms gauge
-sample_external_url_ms{url="https://httpstat.us/200"} 82
-sample_external_url_ms{url="https://httpstat.us/503"} 93
+# HELP sample_external_url_connect_time_ms Response time in milliseconds it took to establish the inital connection.
+# TYPE sample_external_url_connect_time_ms gauge
+sample_external_url_connect_time_ms{url="https://httpstat.us/200"} 21
+sample_external_url_connect_time_ms{url="https://httpstat.us/503"} 21
+# HELP sample_external_url_dns_ms Response time in milliseconds it took for the DNS request to take place.
+# TYPE sample_external_url_dns_ms gauge
+sample_external_url_dns_ms{url="https://httpstat.us/200"} 7
+sample_external_url_dns_ms{url="https://httpstat.us/503"} 39
+# HELP sample_external_url_first_byte_ms Response time in milliseconds it took to retrive the first byte.
+# TYPE sample_external_url_first_byte_ms gauge
+sample_external_url_first_byte_ms{url="https://httpstat.us/200"} 100
+sample_external_url_first_byte_ms{url="https://httpstat.us/503"} 150
+# HELP sample_external_url_response_ms Response time in milliseconds it took for the URL to respond.
+# TYPE sample_external_url_response_ms gauge
+sample_external_url_response_ms{url="https://httpstat.us/200"} 100
+sample_external_url_response_ms{url="https://httpstat.us/503"} 150
 # HELP sample_external_url_up Status of the URL as a integer value
 # TYPE sample_external_url_up gauge
 sample_external_url_up{url="https://httpstat.us/200"} 1
