@@ -3,21 +3,6 @@ Example of creating custom metrics for prometheus written in GoLang. This applic
 
 Once metrics on the URL request have been collected, it will set the metrics via the prometheus GoLang Library. At this point they will be available for scraping at `/metrics` on port `2112`
 
-# Demo
-A demo hosted on a Linode k8s cluster can be found @ https://sample-grafana.invertedorigin.com. 
-
-To reach the dashboard please do the following.
-1. Navigate to the above URL and enter your @vmware.com email address.
-2. A OTP (one time password) will be sent to your email, retrieve it and type it into the box provided.
-3. Once at the grafana homepage navigate to Dashboards -> Browse. Then select the dashboard titled "HeathChecker".
-
-### Demo Architecture
-The demo is hosted on LKE (Linode Kubernetes Environment). This environment has loki-stack (Loki, Promtail, Grafana, Prometheus) installed and also includes a cloudflared client.
-
-Requests to the above URL are proxied by Cloudflare, where they are subject to Cloudflare Zero Trust rules. Once a policy has been met (providing the OTP from your email) requests are then forwarded to an highly available cloudflared deployment within the LKE cluster. 
-
-Cloudflared is configured with a named tunnel between Cloudflare's Edge Network and the LKE cluster. As a result it is effectively operating as a HA reverse proxy negating the need for an ingress controller or load balancer. All public requests are load balanced (round-robin) by the cloudflared deployment.
-
 # Running Locally
 ### Via the Prebuild Docker Image
 ```
