@@ -42,7 +42,7 @@ func init() {
 	flag.DurationVar(
 		&healthcheck_interval,
 		"interval",
-		5*time.Second,
+		10*time.Second,
 		"Interval for the healthchecks",
 	)
 	flag.Var(
